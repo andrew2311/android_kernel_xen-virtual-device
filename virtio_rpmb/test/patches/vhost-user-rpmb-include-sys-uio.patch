@@ -1,0 +1,20 @@
+Subject: [PATCH] tools/vhost-user-rpmb: include sys/uio.h
+
+main.c uses struct iovec but relies on other headers to declare it,
+which current glib and kernel headers no longer do.
+---
+ tools/vhost-user-rpmb/main.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/tools/vhost-user-rpmb/main.c b/tools/vhost-user-rpmb/main.c
+index 417419e..d4a0052 100644
+--- a/tools/vhost-user-rpmb/main.c
++++ b/tools/vhost-user-rpmb/main.c
+@@ -21,6 +21,7 @@
+ #include <sys/types.h>
+ #include <sys/stat.h>
+ #include <sys/mman.h>
++#include <sys/uio.h>
+ #include <unistd.h>
+ #include <endian.h>
+ #include <assert.h>
