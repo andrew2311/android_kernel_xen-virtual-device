@@ -61,6 +61,7 @@ filegroup(
 _VIRT_COMMON_MODULES = [
     "failover.ko",
     "net_failover.ko",
+    "rpmb-core.ko",
     "rpmsg_ns.ko",
     "snd-aloop.ko",
     "system_heap.ko",
@@ -264,6 +265,7 @@ kernel_module_group(
     name = "xen_virtual_device_aarch64_external_modules",
     srcs = [
         "//common-modules/xen-virtual-device/dma_buf_cma_heap:dma_buf_cma_heap",
+        "//common-modules/xen-virtual-device/virtio_rpmb:virtio_rpmb",
         "//modules/imagination/ddk/rogue_km:pvrsrvkm",
         "//modules/renesas/disfwk_fe:disfwk_fe",
         "//modules/renesas/rcar-mfis:rcar_mfis",

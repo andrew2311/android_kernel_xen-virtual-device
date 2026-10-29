@@ -1,0 +1,21 @@
+load("//build/kernel/kleaf:kernel.bzl", "ddk_module")
+
+filegroup(
+    name = "virtio_rpmb_sources",
+    srcs = [
+        "virtio_rpmb.c",
+    ],
+)
+
+ddk_module(
+    name = "virtio_rpmb",
+    srcs = [":virtio_rpmb_sources"],
+    out = "virtio_rpmb.ko",
+    kernel_build = "//common-modules/xen-virtual-device:xen_virtual_device_aarch64",
+    visibility = [
+        "//common-modules/xen-virtual-device:__pkg__",
+    ],
+    deps = [
+        "//common:all_headers_aarch64",
+    ],
+)
